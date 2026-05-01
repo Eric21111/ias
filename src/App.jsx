@@ -11,6 +11,7 @@ import {
 } from 'firebase/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ClickSpark from './components/ClickSpark'
+import LandingPage from './components/LandingPage'
 import SplashCursor from './components/SplashCursor'
 import { auth, googleProvider } from './firebaseClient'
 
@@ -355,52 +356,7 @@ function App() {
   }, [isLogin, signupEmail, signupPassword, isSignupEmailVerified])
 
   if (location.pathname === '/dashboard' && currentUser) {
-    return (
-      <ClickSpark
-        sparkColor="#42FCFF"
-        sparkSize={12}
-        sparkRadius={25}
-        sparkCount={12}
-        duration={600}
-        easing="ease-out"
-        extraScale={1.2}
-        className="page-shell dashboard-shell"
-      >
-        <SplashCursor RAINBOW_MODE={false} COLOR="#42FCFF" />
-        <div className="ambient ambient-a" aria-hidden="true" />
-        <div className="ambient ambient-b" aria-hidden="true" />
-
-        <header className="topbar">
-          <div className="brand-lockup">
-            <div className="brand-mark">
-              <span />
-            </div>
-            <div>
-              <p className="eyebrow">Information Assurance</p>
-            </div>
-          </div>
-          <button onClick={handleLogout} className="auth-link login-btn">
-            Logout
-          </button>
-        </header>
-
-        <main className="dashboard-main">
-          <section className="dashboard-card">
-            <h1>Dashboard</h1>
-            <p className="dashboard-subcopy">Signed in successfully.</p>
-            <div className="dashboard-user">
-              {currentUser.picture ? <img src={currentUser.picture} alt={currentUser.name} /> : null}
-              <div>
-                <strong>{currentUser.name || 'User'}</strong>
-                <p>{currentUser.email || 'No email available'}</p>
-              </div>
-            </div>
-          </section>
-        </main>
-
-        {authMessage && <div className="auth-toast">{authMessage}</div>}
-      </ClickSpark>
-    )
+    return <LandingPage onLogout={handleLogout} currentUser={currentUser} />
   }
 
   return (

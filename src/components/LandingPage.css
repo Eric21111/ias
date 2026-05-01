@@ -1,0 +1,407 @@
+.lesson-shell {
+  min-height: 100vh;
+  padding: 26px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(66, 252, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 90% 10%, rgba(124, 255, 103, 0.14), transparent 28%),
+    #060c12;
+  color: #dbe7f0;
+}
+
+.lesson-topbar {
+  max-width: 1280px;
+  margin: 0 auto 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lesson-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lesson-brand p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  color: #a8d8ff;
+}
+
+.lesson-brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(170, 230, 255, 0.45);
+  display: grid;
+  place-items: center;
+}
+
+.lesson-brand-mark span {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid #c8f3ff;
+}
+
+.lesson-logout {
+  border: 1px solid rgba(160, 220, 255, 0.45);
+  border-radius: 10px;
+  padding: 8px 14px;
+  background: rgba(20, 37, 53, 0.55);
+  color: #dff7ff;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+}
+
+.lesson-main {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.lesson-panel {
+  border-radius: 20px;
+  border: 1px solid rgba(210, 230, 245, 0.14);
+  background: linear-gradient(180deg, rgba(8, 16, 27, 0.78), rgba(5, 10, 16, 0.88));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  padding: 26px;
+}
+
+.lesson-header-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.module-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #1a2330;
+  border: 1px solid rgba(221, 236, 248, 0.3);
+  color: #f03f6f;
+  display: grid;
+  place-items: center;
+}
+
+.module-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.lesson-header-row h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #edf7ff;
+}
+
+.module-description {
+  margin: 10px 0 0;
+  max-width: 960px;
+  color: #c9ddee;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.card-stage {
+  position: relative;
+  height: 640px;
+  border-radius: 14px;
+  border: 1px solid rgba(190, 214, 228, 0.2);
+  background: linear-gradient(180deg, rgba(12, 23, 36, 0.8), rgba(8, 18, 29, 0.9));
+  overflow: hidden;
+}
+
+.card-instruction {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 260px;
+  z-index: 3;
+  border: 1px solid rgba(168, 198, 224, 0.22);
+  border-radius: 10px;
+  background: rgba(10, 20, 32, 0.78);
+  padding: 12px 14px;
+}
+
+.card-instruction strong {
+  color: #8fd7ff;
+  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.card-instruction p {
+  margin: 6px 0 0;
+  color: #d8eafb;
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.lesson-card {
+  border-radius: 14px;
+  border: 1px solid rgba(168, 198, 224, 0.2);
+  background: linear-gradient(160deg, rgba(12, 24, 38, 0.95), rgba(9, 19, 31, 0.94));
+  color: #e7f0f7;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.lesson-card:hover {
+  border-color: rgba(103, 219, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(67, 220, 255, 0.16), 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lesson-card hr {
+  border: none;
+  border-top: 1px solid rgba(173, 198, 219, 0.2);
+  margin: 14px 0 16px;
+}
+
+.lesson-steps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(126, 158, 187, 0.24);
+  border: 1px solid rgba(176, 208, 235, 0.24);
+  color: #d0e7fa;
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.step-dot-label {
+  display: inline-block;
+  color: #d0e7fa;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.step-dot.active {
+  background: linear-gradient(120deg, #25bdf5, #31ffd0);
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(37, 189, 245, 0.22);
+}
+
+.step-dot.active .step-dot-label {
+  color: #03212d;
+}
+
+.step-dot.completed {
+  background: linear-gradient(120deg, #5ef28f, #9cffc2);
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(94, 242, 143, 0.2);
+}
+
+.step-dot.completed .step-dot-label {
+  color: #0d2d1a;
+}
+
+.step-dot.active.completed {
+  background: linear-gradient(120deg, #47e581, #89f8b5);
+}
+
+.lesson-card-content h2 {
+  margin: 0 0 14px;
+  font-size: 2rem;
+  color: #f5fbff;
+}
+
+.lesson-card-content h3 {
+  margin: 18px 0 10px;
+  font-size: 1.32rem;
+  color: #cde9ff;
+}
+
+.lesson-card-content p,
+.lesson-card-content li {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #d5e8f8;
+}
+
+.lesson-card-content ul {
+  margin: 0;
+  padding-left: 30px;
+}
+
+.quiz-list {
+  display: grid;
+  gap: 14px;
+}
+
+.quiz-card {
+  border: 1px solid rgba(168, 198, 224, 0.2);
+  border-radius: 10px;
+  background: rgba(8, 18, 30, 0.78);
+  padding: 12px;
+}
+
+.quiz-card.quiz-correct {
+  border-color: rgba(110, 246, 173, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(110, 246, 173, 0.18);
+}
+
+.quiz-card.quiz-wrong {
+  border-color: rgba(255, 118, 118, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255, 118, 118, 0.15);
+}
+
+.quiz-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #f0f8ff;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-result-line {
+  height: 4px;
+  border-radius: 999px;
+  margin: 8px 0 10px;
+}
+
+.quiz-result-line.line-correct {
+  background: linear-gradient(90deg, rgba(110, 246, 173, 0.95), rgba(151, 255, 206, 0.7));
+}
+
+.quiz-result-line.line-wrong {
+  background: linear-gradient(90deg, rgba(255, 118, 118, 0.95), rgba(255, 165, 165, 0.7));
+}
+
+.quiz-option-wrap {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.quiz-option-wrap.option-correct {
+  border-color: rgba(110, 246, 173, 0.5);
+  background: rgba(110, 246, 173, 0.1);
+}
+
+.quiz-option-wrap.option-wrong {
+  border-color: rgba(255, 118, 118, 0.45);
+  background: rgba(255, 118, 118, 0.08);
+}
+
+.quiz-option-wrap.option-selected {
+  border-color: rgba(74, 211, 255, 0.5);
+  background: rgba(74, 211, 255, 0.12);
+}
+
+.quiz-option {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  align-items: start;
+  cursor: pointer;
+}
+
+.quiz-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quiz-option span {
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #dbeaf7;
+}
+
+.quiz-answer-note {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #c7deef;
+}
+
+.submit-btn {
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(168, 198, 224, 0.24);
+  background: rgba(12, 24, 36, 0.9);
+  color: #e9f4ff;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  border-color: rgba(67, 220, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(67, 220, 255, 0.15);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.quiz-status {
+  margin: 10px 0 0;
+  color: #bfdced;
+}
+
+.quiz-status.success {
+  color: #98f7c2;
+}
+
+@media (max-width: 1200px) {
+  .card-stage {
+    height: 580px;
+  }
+
+  .lesson-card-content h2 {
+    font-size: 2rem;
+  }
+
+  .lesson-card-content h3 {
+    font-size: 1.45rem;
+  }
+
+  .lesson-card-content p,
+  .lesson-card-content li {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .lesson-shell {
+    padding: 18px;
+  }
+
+  .lesson-panel {
+    padding: 16px;
+  }
+
+  .lesson-header-row h1 {
+    font-size: 1.5rem;
+  }
+
+  .module-description {
+    font-size: 0.95rem;
+  }
+
+  .card-instruction {
+    width: 220px;
+  }
+}
