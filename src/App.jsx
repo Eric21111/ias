@@ -141,6 +141,21 @@ function App() {
     }
   }
 
+  const handleCheckVerification = async () => {
+    setIsEmailAuthLoading(true)
+    setAuthMessage('')
+    try {
+      const verified = await checkSignupVerificationStatus()
+      if (verified) {
+        setAuthMessage('Email verified. Click Sign Up to continue.')
+      } else {
+        setAuthMessage('Email is not verified yet. Please verify your email first.')
+      }
+    } finally {
+      setIsEmailAuthLoading(false)
+    }
+  }
+
   const finalizeAuthenticatedSession = async (firebaseUser) => {
     const idToken = await firebaseUser.getIdToken()
 
@@ -354,6 +369,29 @@ function App() {
 
     return () => clearTimeout(timer)
   }, [isLogin, signupEmail, signupPassword, isSignupEmailVerified])
+
+  // When a verification email has been sent, poll periodically to detect
+  // when the user has clicked the verification link and their account is
+  // marked verified in Firebase. This avoids leaving the UI stuck on
+  // "Verifying..." if the user returns without pressing the Check button.
+  useEffect(() => {
+    if (signupVerificationState !== 'sent') return
+
+    let cancelled = false
+    const interval = setInterval(async () => {
+      if (cancelled) return
+      try {
+        await checkSignupVerificationStatus({ silent: true })
+      } catch {
+        // ignore
+      }
+    }, 5000)
+
+    return () => {
+      cancelled = true
+      clearInterval(interval)
+    }
+  }, [signupVerificationState])
 
   if (location.pathname === '/dashboard' && currentUser) {
     return <LandingPage onLogout={handleLogout} currentUser={currentUser} />
@@ -625,13 +663,24 @@ function App() {
                     }}
                     required
                   />
-                  <span
-                    className={`email-verify-icon ${isSignupEmailVerified ? 'verified' : 'not-verified'}`}
-                    aria-label={isSignupEmailVerified ? 'Email verified' : 'Email not verified'}
-                    title={isSignupEmailVerified ? 'Email verified' : 'Email not verified'}
-                  >
-                    {isSignupEmailVerified ? '✓' : '✕'}
-                  </span>
+                  <>
+                    <span
+                      className={`email-verify-icon ${isSignupEmailVerified ? 'verified' : 'not-verified'}`}
+                      aria-label={isSignupEmailVerified ? 'Email verified' : 'Email not verified'}
+                      title={isSignupEmailVerified ? 'Email verified' : 'Email not verified'}
+                    >
+                      {isSignupEmailVerified ? '✓' : '✕'}
+                    </span>
+                    <button
+                      type="button"
+                      className="check-verify-btn"
+                      onClick={handleCheckVerification}
+                      disabled={isEmailAuthLoading || isSignupEmailVerified}
+                      aria-label="Check email verification"
+                    >
+                      {isEmailAuthLoading ? 'Checking…' : 'Check'}
+                    </button>
+                  </>
                 </div>
 
                 <div className="password-row">

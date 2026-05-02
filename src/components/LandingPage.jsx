@@ -4,15 +4,19 @@ import { lessonCards, moduleInfo } from '../data/lessonContent'
 import CardDetailModal from './CardDetailModal'
 import './LandingPage.css'
 
-const StepDots = ({ active, isQuizCompleted = false }) => (
+const StepDots = ({ active, isQuizCompleted = false, onStepClick }) => (
   <div className="lesson-steps" aria-label={`Step ${active} of 5`}>
     {[1, 2, 3, 4, 5].map((step) => (
-      <span
+      <button
         key={step}
+        type="button"
         className={`step-dot ${step === active ? 'active' : ''} ${step === 5 && isQuizCompleted ? 'completed' : ''}`}
+        onClick={() => onStepClick && onStepClick(step)}
+        aria-pressed={step === active}
+        aria-label={`Go to step ${step}`}
       >
         <span className="step-dot-label">{step}</span>
-      </span>
+      </button>
     ))}
   </div>
 )
@@ -286,7 +290,11 @@ function LandingPage({ onLogout, currentUser }) {
             >
               {lessonCards.map((slide) => (
                 <Card key={slide.step} customClass="lesson-card">
-                  <StepDots active={slide.step} isQuizCompleted={quizCompleted} />
+                  <StepDots
+                    active={slide.step}
+                    isQuizCompleted={quizCompleted}
+                    onStepClick={(n) => setActiveCardIndex(lessonCards.findIndex((s) => s.step === n))}
+                  />
                   <hr />
                   {renderSlideContent(slide)}
                 </Card>
@@ -304,7 +312,11 @@ function LandingPage({ onLogout, currentUser }) {
       >
         {activeCard ? (
           <>
-            <StepDots active={activeCard.step} isQuizCompleted={quizCompleted} />
+            <StepDots
+              active={activeCard.step}
+              isQuizCompleted={quizCompleted}
+              onStepClick={(n) => setActiveCardIndex(lessonCards.findIndex((s) => s.step === n))}
+            />
             <hr />
             {renderSlideContent(activeCard)}
           </>

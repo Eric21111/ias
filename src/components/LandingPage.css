@@ -179,6 +179,8 @@
   font-weight: 700;
   font-size: 0.85rem;
   line-height: 1;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
 .step-dot-label {
@@ -192,6 +194,11 @@
   background: linear-gradient(120deg, #25bdf5, #31ffd0);
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(37, 189, 245, 0.22);
+}
+
+.step-dot:hover:not(.active) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(2,6,23,0.25);
 }
 
 .step-dot.active .step-dot-label {

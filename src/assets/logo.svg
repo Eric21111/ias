@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .bg{fill:#0b2b2b}
+      .ring{fill:none;stroke:#4fc3f7;stroke-width:6}
+      .inner{fill:none;stroke:#cfeefb;stroke-width:4}
+    </style>
+  </defs>
+  <rect class="bg" width="128" height="128" rx="24"/>
+  <circle class="ring" cx="64" cy="64" r="34"/>
+  <circle class="inner" cx="64" cy="64" r="18"/>
+</svg>

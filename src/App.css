@@ -1181,6 +1181,33 @@
   color: #fda4af;
 }
 
+/* Button for checking email verification status */
+.check-verify-btn {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.06);
+  color: #e9f7ff;
+  border: 1px solid rgba(233,247,255,0.06);
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.check-verify-btn:hover:not(:disabled) {
+  background: rgba(66,252,255,0.06);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.35);
+  transform: translateY(-52%) scale(1.02);
+}
+
+.check-verify-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 .auth-submit {
   padding: 13px 18px;
   background: linear-gradient(135deg, var(--accent-cyan), var(--accent-lime));
