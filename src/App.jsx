@@ -775,5 +775,4 @@ function App() {
     </ClickSpark>
   )
 }
-
 export default App
